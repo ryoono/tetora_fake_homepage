@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テトラ製作所</title>
+    <style>
+        /* 全体のスタイル */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            /*overflow: hidden;*/
+        }
+
+        /* コンテナスタイル */
+        .container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* メッセージのスタイル */
+        .message {
+            font-size: 1.2em;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        /* タイトルのスタイル */
+        h1 {
+            font-size: 3em;
+            color: #ffcc00;
+            margin: 0;
+        }
+
+        /* 中央配置のスタイル */
+        .center {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* リンクスタイル */
+        a {
+            color: #00ccff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* アクセスカウンタースタイル */
+        .counter {
+            margin: 20px auto;
+            text-align: center;
+            color: #fff;
+        }
+
+        .counter span {
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
+        /* 「+」マークのスタイル */
+        .star {
+            position: absolute;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            pointer-events: none;
+            animation: fadeOut 1s ease-out forwards;
+        }
+
+        /* 星のフェードアウトアニメーション */
+        @keyframes fadeOut {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* 雪のエフェクト */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            font-size: 1em;
+            color: #fff;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            100% {
+                transform: translateY(100vh) translateX(20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- メッセージとタイトル -->
+    <p>Sorry...This homepage is Japanese only</p>
+    <div class="container">
+        <h1>テトラのガラクタ置き場</h1>
+    </div>
+
+    <!-- コンテンツ -->
+    <div class="center">
+        <div class="counter">
+            あなたは<span id="counter"></span>人目のお客様です
+        </div>
+
+        <p>
+            <span>キリ番報告BBSは</span>
+            <a href="./commingsoon.htm">こちら</a>
+            <span>です</span>
+        </p>
+        <p>キリ番踏み逃げ禁止！</p>
+        <img src="img/14.7.18_マール王国.png" alt="扉絵"  width="700" height="500">
+        <p>またまた「Lピコ」様から扉絵を描いていただきました～かわいい～(*•ω•*)</p>
+        <a href="./commingsoon.htm">Chatルーム</a>　←　土曜日の19:00からチャット大会開きます～(^_-)-☆<br><br>
+        <a href="./commingsoon.htm">SS置き場</a><br><br>
+        <a href="./commingsoon.htm">イラスト置き場</a><br><br>
+        <a href="./commingsoon.htm">リンク集</a>
+
+        <p><a style="font-size:16px;line-height:1.5;font-weight: bold;"  ><span style="color:#1b8ef3;">↓</span><span style="color:#1c77f3;">↓</span><span style="color:#1d5ff4;">↓</span><span style="color:#1e48f4;">↓</span><span style="color:#1f31f5;">↓</span><span style="color:#251ff5;">↓</span><span style="color:#3d20f6;">過</span><span style="color:#5621f6;">去</span><span style="color:#6e22f6;">の</span><span style="color:#8723f7;">扉</span><span style="color:#9f24f7;">絵</span><span style="color:#b725f8;">た</span><span style="color:#cf26f8;">ち</span><span style="color:#e727f9;">で</span><span style="color:#f928f3;">す</span><span style="color:#f928dd;">（</span><span style="color:#fa29c6;">＊</span><span style="color:#fa2aaf;">O</span><span style="color:#fa2b99;">＊</span><span style="color:#fb2c82;">）</span><span style="color:#fb2d6c;">↓</span><span style="color:#fc2e56;">↓</span><span style="color:#fc2f40;">↓</span><span style="color:#fc3630;">↓</span><span style="color:#fd4e31;">↓</span><span style="color:#fd6532;">↓</span></a></p>
+        <img src="img/16.01.03 Bep.png" alt="扉絵"  width="640" height="520"><br>
+        <p><span style="color:#000;">!!!!! ETISBEWDLO SI GALF !!!!!</span></p>
+        <img src="img/15.12.03 line用.png" alt="扉絵"  width="640" height="520">
+    </div>
+
+    <!-- 雪の生成スクリプト -->
+    <script>
+        // アクセスカウンターにランダムな値を設定
+        const randomCounter = Math.floor(Math.random() * 9000) + 1000; // 1000〜9999
+        document.getElementById('counter').textContent = randomCounter;
+
+        // 雪の生成スクリプト
+        const snowflakeCount = 100;
+        for (let i = 0; i < snowflakeCount; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
+            snowflake.style.animationDelay = Math.random() * 5 + 's';
+            snowflake.textContent = '❄';
+            document.body.appendChild(snowflake);
+        }
+
+        // マウスストーカー機能
+        document.addEventListener('mousemove', (e) => {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${e.pageX}px`;
+            star.style.top = `${e.pageY}px`;
+            star.style.color = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`; // ランダムな色
+            star.textContent = '+';
+            document.body.appendChild(star);
+
+            // 一定時間後に星を削除
+            setTimeout(() => {
+                star.remove();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
